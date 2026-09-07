@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JO Servicing | Bike Servicing</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080a0f;
+    color: #ffffff;
+    line-height: 1.6;
+}
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    background: #080a0f;
+    border-bottom: 1px solid #202633;
+}
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: #42a5ff;
+}
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+nav a {
+    color: #c4c9d2;
+    text-decoration: none;
+    font-size: 15px;
+}
+nav a:hover {
+    color: #42a5ff;
+}
+/* HERO */
+.hero {
+    padding: 120px 20px 110px;
+    text-align: center;
+    background:
+        linear-gradient(
+            rgba(8,10,15,0.92),
+            rgba(8,10,15,0.98)
+        );
+}
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+}
+.hero h1 {
+    font-size: clamp(48px, 8vw, 78px);
+    line-height: 1;
+    margin-bottom: 25px;
+}
+.hero h1 span {
+    color: #42a5ff;
+}
+.hero p {
+    max-width: 620px;
+    margin: auto;
+    color: #a9b0bd;
+    font-size: 18px;
+}
+.buttons {
+    margin-top: 35px;
+}
+.button {
+    display: inline-block;
+    padding: 14px 27px;
+    margin: 5px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+.primary {
+    background: #168cff;
+    color: white;
+}
+.primary:hover {
+    background: #0878df;
+}
+.secondary {
+    border: 1px solid #394353;
+    color: white;
+}
+.secondary:hover {
+    border-color: #42a5ff;
+    color: #42a5ff;
+}
+/* GENERAL */
+section {
+    padding: 90px 7%;
+}
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: auto auto 50px;
+}
+.section-title h2 {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+.section-title p {
+    color: #8f97a5;
+}
+/* SERVICES */
+.services {
+    background: #0b0e15;
+}
+.service-grid {
+    max-width: 950px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+.service {
+    background: #11151e;
+    border: 1px solid #252d3b;
+    border-radius: 12px;
+    padding: 35px;
+    transition: 0.2s;
+}
+.service:hover {
+    border-color: #3d86c8;
+    transform: translateY(-4px);
+}
+.service h3 {
+    font-size: 27px;
+    margin-bottom: 13px;
+}
+.service p {
+    color: #9ba3b1;
+    margin-bottom: 25px;
+}
+.price {
+    font-size: 34px;
+    font-weight: bold;
+    color: #42a5ff;
+}
+/* ABOUT */
+.about {
+    background: #080a0f;
+}
+.about-content {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+.about-content p {
+    color: #a8afbb;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+/* WHAT WE DO */
+.checks {
+    background: #0b0e15;
+}
+.check-grid {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+.check {
+    padding: 22px;
+    background: #11151e;
+    border: 1px solid #252d3b;
+    border-radius: 9px;
+    color: #c2c8d2;
+}
+.check span {
+    color: #42a5ff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+/* HOW IT WORKS */
+.steps {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+.step {
+    text-align: center;
+}
+.step-number {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #168cff;
+    font-weight: bold;
+}
+.step h3 {
+    margin-bottom: 8px;
+}
+.step p {
+    color: #929aa8;
+}
+/* CONTACT */
+.contact {
+    background: #0b0e15;
+    text-align: center;
+}
+.contact-box {
+    max-width: 650px;
+    margin: auto;
+    padding: 40px 25px;
+    background: #11151e;
+    border: 1px solid #252d3b;
+    border-radius: 12px;
+}
+.contact-box p {
+    color: #aab1bd;
+    font-size: 18px;
+    margin: 12px 0;
+}
+.contact-box strong {
+    color: white;
+}
+.contact-box a:not(.button) {
+    color: #42a5ff;
+    text-decoration: none;
+}
+/* DISCLAIMER */
+.disclaimer {
+    padding: 30px 20px;
+    text-align: center;
+    background: #06080c;
+    border-top: 1px solid #202633;
+    color: #7f8794;
+    font-size: 14px;
+}
+.disclaimer strong {
+    color: #42a5ff;
+}
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 28px 20px;
+    background: #05070a;
+    color: #69717e;
+    font-size: 14px;
+}
+footer span {
+    color: #42a5ff;
+}
+/* MOBILE */
+@media (max-width: 750px) {
+    nav {
+        flex-direction: column;
+        gap: 14px;
+    }
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero {
+        padding: 90px 20px;
+    }
+    .hero h1 {
+        font-size: 50px;
+    }
+    section {
+        padding: 70px 6%;
+    }
+    .service-grid,
+    .check-grid,
+    .steps {
+        grid-template-columns: 1fr;
+    }
+    .section-title h2 {
+        font-size: 34px;
+    }
+}
+</style>
+</head>
+<body>
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">
+        JO SERVICING
+    </div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>
+            Bike servicing
+            <span>done properly.</span>
+        </h1>
+        <p>
+            Affordable bike servicing and maintenance
+            to keep your bike running smoothly and ready
+            for your next ride.
+        </p>
+        <div class="buttons">
+            <a href="#contact" class="button primary">
+                Book a Service
+            </a>
+            <a href="#services" class="button secondary">
+                See Prices
+            </a>
+        </div>
+    </div>
+</section>
+<!-- SERVICES -->
+<section class="services" id="services">
+    <div class="section-title">
+        <h2>Services & Prices</h2>
+        <p>
+            Two simple service options. No confusing packages.
+        </p>
+    </div>
+    <div class="service-grid">
+        <div class="service">
+            <h3>Basic Service</h3>
+            <p>
+                A general check and service to make sure
+                your bike is working properly and ready to ride.
+            </p>
+            <div class="price">
+                £30
+            </div>
+        </div>
+        <div class="service">
+            <h3>Full Service</h3>
+            <p>
+                A more thorough service covering the main
+                parts of your bike and checking for potential problems.
+            </p>
+            <div class="price">
+                £50
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="section-title">
+        <h2>About JO Servicing</h2>
+    </div>
+    <div class="about-content">
+        <p>
+            JO Servicing offers straightforward bike servicing
+            for people who want to keep their bikes in good working order.
+        </p>
+        <p>
+            Whether you ride regularly, use your bike to get around,
+            or just need a service before getting back on the road,
+            we can help.
+        </p>
+        <p>
+            We keep things simple: clear prices, careful work
+            and a bike that's ready to ride.
+        </p>
+    </div>
+</section>
+<!-- WHAT WE CHECK -->
+<section class="checks">
+    <div class="section-title">
+        <h2>What We Check</h2>
+        <p>
+            Depending on the service you choose, we can check the main
+            working parts of your bike.
+        </p>
+    </div>
+    <div class="check-grid">
+        <div class="check">
+            <span>✓</span>
+            Brakes
+        </div>
+        <div class="check">
+            <span>✓</span>
+            Gears
+        </div>
+        <div class="check">
+            <span>✓</span>
+            Chain
+        </div>
+        <div class="check">
+            <span>✓</span>
+            Tyres
+        </div>
+        <div class="check">
+            <span>✓</span>
+            Wheels
+        </div>
+        <div class="check">
+            <span>✓</span>
+            General condition
+        </div>
+    </div>
+</section>
+<!-- HOW IT WORKS -->
+<section>
+    <div class="section-title">
+        <h2>How It Works</h2>
+        <p>
+            Getting your bike serviced is simple.
+        </p>
+    </div>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">
+                1
+            </div>
+            <h3>Get In Touch</h3>
+            <p>
+                Call or email us to arrange your service.
+            </p>
+        </div>
+        <div class="step">
+            <div class="step-number">
+                2
+            </div>
+            <h3>Choose a Service</h3>
+            <p>
+                Choose the £30 Basic Service or £50 Full Service.
+            </p>
+        </div>
+        <div class="step">
+            <div class="step-number">
+                3
+            </div>
+            <h3>Get Back Riding</h3>
+            <p>
+                Once the service is complete, your bike is ready to go.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+    <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p>
+            Want to book a service or ask a question?
+            Get in touch.
+        </p>
+    </div>
+    <div class="contact-box">
+        <p>
+            <strong>Phone:</strong>
+            <a href="tel:07436237069">
+                07436237069
+            </a>
+        </p>
+        <p>
+            <strong>Email:</strong>
+            <a href="mailto:JOservicingbusiness@gmail.com">
+                JOservicingbusiness@gmail.com
+            </a>
+        </p>
+        <br>
+        <a
+            href="mailto:JOservicingbusiness@gmail.com"
+            class="button primary"
+        >
+            Email JO Servicing
+        </a>
+    </div>
+</section>
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+    <strong>Disclaimer:</strong>
+    If you need a new part, buy it and we will replace it.
+</div>
+<!-- FOOTER -->
+<footer>
+    <p>
+        © 2026 <span>JO Servicing</span>.
+        All rights reserved.
+    </p>
+</footer>
+</body>
+</html>
