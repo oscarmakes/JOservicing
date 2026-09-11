@@ -1,95 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JOservicing | Customer Portal</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div id="loginScreen" class="auth-screen">
-    <div class="auth-card">
-      <div class="logo">JO<span>servicing</span></div>
-      <p class="tagline">Bike servicing made simple.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Legacy Cleans | Premium Car Cleaning</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="topbar"><div class="container"><span>LEGACY CLEANS • PREMIUM CAR CARE</span><span>Open 7 days • Call 01234 567890</span></div></div>
+<nav class="nav"><div class="container navin"><a class="logo" href="index.html">LEGACY <span>CLEANS</span></a><button class="menu">☰</button><div class="links"><a class="active" href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="gallery.html">Gallery</a><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="contact.html">Contact</a><a class="btn small" href="booking.html">Book Now</a></div></div></nav>
+<header class="hero"><div class="container content"><div class="eyebrow">Professional vehicle care</div><h1>Clean cars.<br><span>Lasting impressions.</span></h1><p>Legacy Cleans delivers premium car cleaning and detailing with attention to the small things that make a big difference.</p><div class="actions"><a class="btn" href="booking.html">Book a Clean →</a><button class="btn alt" data-modal="welcomeModal">See What We Do</button></div></div></header>
+<div class="container"><div class="stats"><div class="stat"><strong>500+</strong><span>Cars cleaned</span></div><div class="stat"><strong>5★</strong><span>Customer care</span></div><div class="stat"><strong>7 days</strong><span>Availability</span></div><div class="stat"><strong>100%</strong><span>Attention to detail</span></div></div></div>
 
-      <div id="loginForm">
-        <h1>Customer Login</h1>
-        <p class="muted">Log in to view your bookings and past orders.</p>
-        <input id="loginEmail" type="email" placeholder="Email address">
-        <input id="loginPassword" type="password" placeholder="Password">
-        <button onclick="login()">Log In</button>
-        <p id="loginMessage" class="message"></p>
-        <button class="secondary" onclick="showRegister()">Create an Account</button>
-      </div>
+<section class="section"><div class="container"><div class="heading"><div><div class="eyebrow">Our services</div><h2>Built around your car.</h2></div><p>From a quick refresh to a full detail, choose the level of care that suits your vehicle and your schedule.</p></div><div class="grid">
+<div class="card"><div class="icon">✦</div><h3>Exterior Valet</h3><p>Safe wash, wheels, tyres, glass and a clean finish.</p><br><button class="btn small" data-service="exterior">Details</button></div>
+<div class="card"><div class="icon">◆</div><h3>Interior Reset</h3><p>Vacuuming, surfaces, mats, glass and a complete cabin refresh.</p><br><button class="btn small" data-service="interior">Details</button></div>
+<div class="card"><div class="icon">◇</div><h3>Full Legacy Detail</h3><p>A complete inside-and-out clean for when your car needs the full treatment.</p><br><button class="btn small" data-service="full">Details</button></div>
+</div></div></section>
 
-      <div id="registerForm" class="hidden">
-        <h1>Create Account</h1>
-        <p class="muted">Your account is stored on this device in this GitHub Pages version.</p>
-        <input id="registerName" type="text" placeholder="Full name">
-        <input id="registerEmail" type="email" placeholder="Email address">
-        <input id="registerPassword" type="password" placeholder="Password">
-        <button onclick="register()">Create Account</button>
-        <p id="registerMessage" class="message"></p>
-        <button class="secondary" onclick="showLogin()">Back to Login</button>
-      </div>
-    </div>
-  </div>
+<section class="section dark"><div class="container feature"><img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=85" alt="Clean car"><div><div class="eyebrow">The Legacy standard</div><h2>It is not just a wash.</h2><p>We focus on careful preparation, quality products and a finish you can actually see. Every vehicle gets treated with the same attention to detail.</p><div class="check"><div>✓ Careful exterior preparation</div><div>✓ Interior cleaned methodically</div><div>✓ Professional presentation</div><div>✓ Friendly, straightforward service</div></div><a class="btn" href="about.html">Meet Legacy Cleans</a></div></div></section>
 
-  <div id="site" class="hidden">
-    <header>
-      <div class="nav">
-        <div class="logo">JO<span>servicing</span></div>
-        <button class="logout" onclick="logout()">Log Out</button>
-      </div>
-    </header>
+<section class="section"><div class="container"><div class="heading"><div><div class="eyebrow">Ready when you are</div><h2>Give your car the Legacy treatment.</h2></div><a class="btn" href="booking.html">Book Online</a></div></div></section>
 
-    <main>
-      <section class="hero">
-        <div>
-          <p class="eyebrow">CUSTOMER PORTAL</p>
-          <h1>Welcome, <span id="customerName"></span>.</h1>
-          <p>Manage your bike servicing bookings and see your order history in one place.</p>
-        </div>
-        <button onclick="openBooking()">+ New Service Booking</button>
-      </section>
+<footer class="footer"><div class="container footergrid"><div><h3>LEGACY <span style="color:var(--gold)">CLEANS</span></h3><p>Premium car cleaning with a professional finish.</p></div><div><h3>Explore</h3><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="gallery.html">Gallery</a><a href="booking.html">Booking</a></div><div><h3>Contact</h3><a href="tel:01234567890">01234 567890</a><a href="mailto:hello@legacycleans.co.uk">hello@legacycleans.co.uk</a><a href="contact.html">Service area</a></div></div><div class="container copy">© <span id="year"></span> Legacy Cleans. All rights reserved.</div></footer>
 
-      <section class="dashboard-grid">
-        <div class="panel">
-          <div class="panel-title">
-            <h2>Current Orders</h2>
-            <span class="badge blue">Your orders only</span>
-          </div>
-          <div id="currentOrders"></div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-title">
-            <h2>Past Orders</h2>
-            <span class="badge purple">Completed</span>
-          </div>
-          <div id="pastOrders"></div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <div id="bookingModal" class="modal hidden">
-    <div class="modal-card">
-      <button class="close" onclick="closeBooking()">×</button>
-      <h2>Book a Bike Service</h2>
-      <p class="muted">Choose a service and add a few details.</p>
-
-      <select id="service">
-        <option value="Basic Service">Basic Service — £30</option>
-        <option value="Full Service">Full Service — £50</option>
-      </select>
-      <input id="bike" type="text" placeholder="Bike / model">
-      <textarea id="notes" placeholder="Anything we should know?"></textarea>
-      <button onclick="placeOrder()">Place Booking</button>
-      <p id="bookingMessage" class="message"></p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+<div class="modal" id="welcomeModal"><div class="modalbox"><button class="close">×</button><div class="eyebrow">Legacy Cleans</div><h2>Professional car care, without the fuss.</h2><p style="color:var(--muted);margin:15px 0 22px">Choose a service, pick a time and let us handle the clean. Our packages are designed to make your car feel fresh again.</p><a class="btn" href="booking.html">Start a Booking</a></div></div>
+<div class="modal" id="serviceModal"><div class="modalbox"><button class="close">×</button><div class="eyebrow">Service</div><h2 id="serviceTitle">Service</h2><p id="serviceText" style="color:var(--muted);margin:15px 0 22px"></p><a class="btn" href="booking.html">Book This Service</a></div></div>
+<div class="cookie"><p>We use essential browser storage for small website features such as remembering your cookie choice.</p><button class="btn small" id="acceptCookies">Got it</button></div>
+<script src="script.js"></script></body></html>
