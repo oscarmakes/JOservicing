@@ -1,0 +1,37 @@
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:#07070b;color:#f6f7fb;min-height:100vh}
+button,input,select,textarea{font:inherit}
+button{border:0;cursor:pointer}
+.hidden{display:none!important}
+.auth-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at top,#24124f 0,#0a0910 48%,#050507 100%)}
+.auth-card{width:100%;max-width:430px;background:rgba(17,17,25,.96);border:1px solid #373044;border-radius:24px;padding:34px;box-shadow:0 25px 70px #0008}
+.logo{font-size:27px;font-weight:900;letter-spacing:-1px}.logo span{background:linear-gradient(90deg,#18a9ff,#9b45ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tagline{color:#9fa1ae;margin:7px 0 28px}
+h1{font-size:30px;margin-bottom:8px}.muted{color:#9fa1ae;line-height:1.5;margin-bottom:20px}
+.auth-card input,.modal-card input,.modal-card select,.modal-card textarea{width:100%;background:#0c0c12;color:#fff;border:1px solid #343441;border-radius:12px;padding:14px;margin-bottom:12px;outline:none}
+.auth-card input:focus,.modal-card input:focus,.modal-card select:focus,.modal-card textarea:focus{border-color:#8c4cff}
+.auth-card>div button,.modal-card>button:not(.close),.hero>button{width:100%;padding:14px;border-radius:12px;background:linear-gradient(90deg,#119ff5,#8d43ff);color:white;font-weight:800;margin-top:4px}
+.auth-card .secondary{background:#1b1b25;margin-top:10px;color:#ddd}
+.message{min-height:22px;color:#ff7272;font-size:14px;margin:9px 0}
+header{border-bottom:1px solid #24242d;background:#0a0a0f;position:sticky;top:0;z-index:5}
+.nav{max-width:1150px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}
+.logout{background:#1a1a22;color:#ddd;padding:10px 15px;border-radius:10px}
+main{max-width:1150px;margin:auto;padding:45px 24px}
+.hero{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:34px;border-radius:22px;background:linear-gradient(120deg,#10172a,#171023);border:1px solid #312d43;margin-bottom:25px}
+.eyebrow{font-size:12px;font-weight:900;letter-spacing:2px;color:#4bb9ff;margin-bottom:8px}
+.hero h1{font-size:39px}.hero h1 span{color:#a762ff}.hero p:last-child{color:#aeb0bd;margin-top:10px}
+.hero>button{width:auto;white-space:nowrap;padding:14px 20px}
+.dashboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{background:#101016;border:1px solid #292932;border-radius:20px;padding:24px;min-height:250px}
+.panel-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.panel-title h2{font-size:21px}
+.badge{font-size:11px;padding:7px 10px;border-radius:999px;font-weight:700}.blue{background:#10344b;color:#64c8ff}.purple{background:#2b1648;color:#c294ff}
+.order{background:#17171f;border:1px solid #2c2c36;border-radius:14px;padding:17px;margin-bottom:12px}
+.order-top{display:flex;justify-content:space-between;gap:10px}.order h3{font-size:16px}.price{font-weight:800}
+.status{display:inline-block;margin-top:9px;padding:5px 9px;border-radius:7px;font-size:11px;font-weight:800;background:#173d2b;color:#6ee7a0}
+.status.process{background:#3d3516;color:#f4d76a}.status.cancelled{background:#3d1919;color:#ff8181}
+.order-meta{color:#9698a5;font-size:13px;margin-top:9px;line-height:1.5}
+.empty{color:#777985;text-align:center;padding:35px 10px}
+.modal{position:fixed;inset:0;background:#000b;display:flex;align-items:center;justify-content:center;padding:20px;z-index:20}
+.modal-card{position:relative;width:100%;max-width:470px;background:#111119;border:1px solid #383343;border-radius:20px;padding:28px}
+.modal-card h2{font-size:27px;margin-bottom:8px}.modal-card textarea{min-height:100px;resize:vertical}.close{position:absolute;right:18px;top:12px;background:none;color:#aaa;font-size:30px}
+@media(max-width:750px){.dashboard-grid{grid-template-columns:1fr}.hero{display:block}.hero>button{margin-top:20px;width:100%}.hero h1{font-size:31px}main{padding:25px 16px}.nav{padding:16px}.auth-card{padding:26px}}
