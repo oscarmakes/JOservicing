@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Business</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background: #080b12;
+            color: white;
+            min-height: 100vh;
+        }
+        /* =========================
+           LOGIN SCREEN
+        ========================= */
+        #loginScreen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background:
+                radial-gradient(circle at top, #263b70 0%, transparent 40%),
+                linear-gradient(135deg, #05070c, #111827);
+        }
+        .login-box {
+            width: 100%;
+            max-width: 430px;
+            padding: 40px 32px;
+            border-radius: 22px;
+            background: rgba(17, 24, 39, 0.95);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.55);
+            text-align: center;
+        }
+        .login-logo {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #4f8cff, #7c3aed);
+            font-size: 28px;
+            font-weight: 900;
+        }
+        .login-box h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+        .login-box p {
+            color: #9ca3af;
+            margin-bottom: 28px;
+        }
+        .input-group {
+            text-align: left;
+            margin-bottom: 17px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            background: #0b111d;
+            color: white;
+            outline: none;
+            font-size: 15px;
+        }
+        .input-group input:focus {
+            border-color: #5b8cff;
+        }
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #4f8cff, #7048e8);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+        .login-button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        .login-message {
+            margin-top: 15px;
+            min-height: 20px;
+            font-size: 14px;
+        }
+        .demo-info {
+            margin-top: 25px;
+            padding: 12px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.04);
+            color: #9ca3af;
+            font-size: 12px;
+        }
+        /* =========================
+           MAIN WEBSITE
+        ========================= */
+        #mainWebsite {
+            display: none;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8,11,18,0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 22px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .nav-links button {
+            border: none;
+            background: transparent;
+            color: #d1d5db;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .nav-links button:hover {
+            background: rgba(255,255,255,0.07);
+            color: white;
+        }
+        .account-button {
+            background: #4f8cff !important;
+            color: white !important;
+        }
+        .hero {
+            max-width: 1200px;
+            margin: auto;
+            padding: 100px 22px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1;
+            margin-bottom: 22px;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #4f8cff, #9b6cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #9ca3af;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .primary-button,
+        .secondary-button {
+            padding: 14px 22px;
+            border-radius: 11px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        .primary-button {
+            background: #4f8cff;
+            color: white;
+        }
+        .secondary-button {
+            background: #1f2937;
+            color: white;
+            border: 1px solid #374151;
+        }
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 22px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .section-title p {
+            color: #9ca3af;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .card {
+            background: #111827;
+            border: 1px solid #1f2937;
+            padding: 28px;
+            border-radius: 18px;
+        }
+        .card-icon {
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+        .card h3 {
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        /* =========================
+           ORDERS
+        ========================= */
+        #ordersSection {
+            display: none;
+        }
+        .orders-container {
+            max-width: 900px;
+            margin: auto;
+        }
+        .order {
+            background: #111827;
+            border: 1px solid #1f2937;
+            border-radius: 15px;
+            padding: 22px;
+            margin-bottom: 15px;
+        }
+        .order-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+        .order-number {
+            font-weight: bold;
+        }
+        .status {
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            background: #163d2b;
+            color: #65e6a2;
+        }
+        .order-info {
+            color: #9ca3af;
+            line-height: 1.7;
+        }
+        .no-orders {
+            text-align: center;
+            padding: 50px;
+            border-radius: 15px;
+            border: 1px dashed #374151;
+            color: #9ca3af;
+        }
+        /* =========================
+           ACCOUNT POPUP
+        ========================= */
+        .popup {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 500;
+            background: rgba(0,0,0,0.75);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .popup-box {
+            width: 100%;
+            max-width: 450px;
+            background: #111827;
+            border: 1px solid #374151;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+        }
+        .popup-box h2 {
+            margin-bottom: 10px;
+        }
+        .popup-box p {
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+        .close-button {
+            position: absolute;
+            right: 18px;
+            top: 15px;
+            border: none;
+            background: none;
+            color: #9ca3af;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        .account-details {
+            padding: 15px;
+            background: #0b111d;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .logout-button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background: #dc2626;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #1f2937;
+            color: #6b7280;
+        }
+        /* =========================
+           MOBILE
+        ========================= */
+        @media (max-width: 750px) {
+            .nav-links button:not(.account-button) {
+                display: none;
+            }
+            .cards {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                padding: 70px 20px;
+            }
+            .hero h1 {
+                font-size: 45px;
+            }
+            .order-top {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- =====================================================
+     LOGIN PAGE
+===================================================== -->
+<div id="loginScreen">
+    <div class="login-box">
+        <div class="login-logo">
+            M
+        </div>
+        <h1>Welcome Back</h1>
+        <p>Log in to access your account and orders.</p>
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+            <button class="login-button" type="submit">
+                Log In
+            </button>
+        </form>
+        <div class="login-message" id="loginMessage"></div>
+        <div class="demo-info">
+            Your account and orders are stored locally on this device.
+        </div>
+    </div>
+</div>
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+<div id="mainWebsite">
+    <header>
+        <nav>
+            <div class="logo">
+                MY BUSINESS
+            </div>
+            <div class="nav-links">
+                <button onclick="showHome()">
+                    Home
+                </button>
+                <button onclick="showOrders()">
+                    My Orders
+                </button>
+                <button
+                    class="account-button"
+                    onclick="openAccount()"
+                >
+                    Account
+                </button>
+            </div>
+        </nav>
+    </header>
+    <!-- HOME -->
+    <main id="homeSection">
+        <div class="hero">
+            <h1>
+                Your <span class="gradient-text">business.</span><br>
+                Made simple.
+            </h1>
+            <p>
+                Welcome to your account dashboard. Browse the
+                website, manage your account and check your orders
+                all in one place.
+            </p>
+            <div class="hero-buttons">
+                <button
+                    class="primary-button"
+                    onclick="showOrders()"
+                >
+                    View My Orders
+                </button>
+                <button
+                    class="secondary-button"
+                    onclick="openAccount()"
+                >
+                    My Account
+                </button>
+            </div>
+        </div>
+        <section>
+            <div class="section-title">
+                <h2>What we offer</h2>
+                <p>
+                    Everything you need in one place.
+                </p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">
+                        🚀
+                    </div>
+                    <h3>Fast Service</h3>
+                    <p>
+                        Quick and reliable service from start
+                        to finish.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        🔒
+                    </div>
+                    <h3>Your Account</h3>
+                    <p>
+                        Keep track of your personal information
+                        and previous orders.
+                    </p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        📦
+                    </div>
+                    <h3>Track Orders</h3>
+                    <p>
+                        Easily see orders that you have made
+                        and orders currently being processed.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- ORDERS -->
+    <section id="ordersSection">
+        <div class="section-title">
+            <h2>My Orders</h2>
+            <p>
+                Orders connected to your account.
+            </p>
+        </div>
+        <div class="orders-container" id="ordersContainer">
+        </div>
+    </section>
+    <!-- ACCOUNT POPUP -->
+    <div class="popup" id="accountPopup">
+        <div class="popup-box">
+            <button
+                class="close-button"
+                onclick="closeAccount()"
+            >
+                ×
+            </button>
+            <h2>My Account</h2>
+            <p>
+                Your account information.
+            </p>
+            <div class="account-details">
+                <strong>Email</strong>
+                <br>
+                <span id="accountEmail"></span>
+            </div>
+            <button
+                class="logout-button"
+                onclick="logout()"
+            >
+                Log Out
+            </button>
+        </div>
+    </div>
+    <footer>
+        © 2026 My Business. All rights reserved.
+    </footer>
+</div>
+<script>
+    /* =====================================================
+       LOGIN SYSTEM
+    ===================================================== */
+    const loginScreen =
+        document.getElementById("loginScreen");
+    const mainWebsite =
+        document.getElementById("mainWebsite");
+    const loginForm =
+        document.getElementById("loginForm");
+    const loginMessage =
+        document.getElementById("loginMessage");
+    loginForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const email =
+            document.getElementById("email").value.trim();
+        const password =
+            document.getElementById("password").value;
+        if (!email || !password) {
+            loginMessage.textContent =
+                "Please enter your email and password.";
+            loginMessage.style.color =
+                "#f87171";
+            return;
+        }
+        /*
+            This creates a local account for the user.
+            IMPORTANT:
+            This is not real secure authentication.
+            It is designed for a static GitHub Pages website.
+        */
+        let users =
+            JSON.parse(localStorage.getItem("users")) || {};
+        if (!users[email]) {
+            users[email] = {
+                email: email,
+                password: password
+            };
+            localStorage.setItem(
+                "users",
+                JSON.stringify(users)
+            );
+        }
+        if (users[email].password !== password) {
+            loginMessage.textContent =
+                "Incorrect password.";
+            loginMessage.style.color =
+                "#f87171";
+            return;
+        }
+        localStorage.setItem(
+            "loggedInUser",
+            email
+        );
+        openWebsite();
+    });
+    /* =====================================================
+       OPEN WEBSITE
+    ===================================================== */
+    function openWebsite() {
+        loginScreen.style.display =
+            "none";
+        mainWebsite.style.display =
+            "block";
+        loadAccount();
+        showHome();
+    }
+    /* =====================================================
+       CHECK LOGIN WHEN PAGE OPENS
+    ===================================================== */
+    window.addEventListener("load", function() {
+        const loggedInUser =
+            localStorage.getItem("loggedInUser");
+        if (loggedInUser) {
+            openWebsite();
+        }
+    });
+    /* =====================================================
+       HOME
+    ===================================================== */
+    function showHome() {
+        document.getElementById(
+            "homeSection"
+        ).style.display = "block";
+        document.getElementById(
+            "ordersSection"
+        ).style.display = "none";
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+    /* =====================================================
+       ORDERS
+    ===================================================== */
+    function showOrders() {
+        document.getElementById(
+            "homeSection"
+        ).style.display = "none";
+        document.getElementById(
+            "ordersSection"
+        ).style.display = "block";
+        loadOrders();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+    function loadOrders() {
+        const container =
+            document.getElementById("ordersContainer");
+        const user =
+            localStorage.getItem("loggedInUser");
+        /*
+            Orders are stored separately for each email.
+            Example:
+            orders_email@example.com
+        */
+        const storageKey =
+            "orders_" + user;
+        const orders =
+            JSON.parse(
+                localStorage.getItem(storageKey)
+            ) || [];
+        container.innerHTML = "";
+        if (orders.length === 0) {
+            container.innerHTML = `
+                <div class="no-orders">
+                    <h3>No orders yet</h3>
+                    <br>
+                    <p>
+                        Orders you make will appear here.
+                    </p>
+                </div>
+            `;
+            return;
+        }
+        orders.forEach(function(order) {
+            const orderElement =
+                document.createElement("div");
+            orderElement.className =
+                "order";
+            orderElement.innerHTML = `
+                <div class="order-top">
+                    <div class="order-number">
+                        Order #${order.id}
+                    </div>
+                    <div class="status">
+                        ${order.status}
+                    </div>
+                </div>
+                <div class="order-info">
+                    <strong>
+                        ${order.item}
+                    </strong>
+                    <br>
+                    Price:
+                    £${order.price}
+                    <br>
+                    Date:
+                    ${order.date}
+                </div>
+            `;
+            container.appendChild(
+                orderElement
+            );
+        });
+    }
+    /* =====================================================
+       ACCOUNT
+    ===================================================== */
+    function loadAccount() {
+        const user =
+            localStorage.getItem("loggedInUser");
+        document.getElementById(
+            "accountEmail"
+        ).textContent = user || "";
+    }
+    function openAccount() {
+        document.getElementById(
+            "accountPopup"
+        ).style.display = "flex";
+        loadAccount();
+    }
+    function closeAccount() {
+        document.getElementById(
+            "accountPopup"
+        ).style.display = "none";
+    }
+    /* =====================================================
+       LOGOUT
+    ===================================================== */
+    function logout() {
+        localStorage.removeItem(
+            "loggedInUser"
+        );
+        mainWebsite.style.display =
+            "none";
+        loginScreen.style.display =
+            "flex";
+        document.getElementById(
+            "email"
+        ).value = "";
+        document.getElementById(
+            "password"
+        ).value = "";
+        closeAccount();
+    }
+    /* =====================================================
+       CLOSE POPUP IF USER CLICKS OUTSIDE IT
+    ===================================================== */
+    document.getElementById(
+        "accountPopup"
+    ).addEventListener(
+        "click",
+        function(event) {
+            if (
+                event.target === this
+            ) {
+                closeAccount();
+            }
+        }
+    );
+</script>
+</body>
+</html>
